@@ -11,11 +11,12 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def new
-		render 'school_classes/new'
+		@school_class=SchoolClass.new
 	end
 
 	def create
-		@new_class=SchoolClass.create(post_params)
+		new_school_class=SchoolClass.create(post_params)
+		redirect_to school_class_path(new_school_class)
 	end
 
 	def edit
@@ -27,13 +28,17 @@ class SchoolClassesController < ApplicationController
 		@class=SchoolClass.find(params[:id])
 		@class.update(post_params)
 		@class.save
-		redirect_to(schoolclass_path(@class))
+		redirect_to(school_class_path(@class))
 	end
 
 	private
  
 		def post_params
-			params.require(:school_classes).permit(:title, :room_number)
+			params.require(:school_class).permit(:title, :room_number)
+		end
+
+		def class_params
+			params.permit(:title, :room_number)
 		end
 
 end
