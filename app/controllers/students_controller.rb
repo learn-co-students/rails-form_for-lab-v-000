@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   end
   
   def show 
-    
+    @student = Student.find(params[:id])
   end
   
   def new
@@ -18,6 +18,19 @@ class StudentsController < ApplicationController
       redirect_to student_path(@student)
     else
       redirect_to new_student_path
+    end
+  end
+  
+  def edit 
+    @student = Student.find(params[:id])
+  end
+  
+  def update 
+    @student = Student.find(params[:id])
+    if @student.update(student_params)
+      redirect_to student_path(@student)
+    else
+      redirect_to edit_student_path(@student)
     end
   end
   

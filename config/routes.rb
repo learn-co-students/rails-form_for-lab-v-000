@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :students, only: [:index, :show, :new, :create, :edit]
   
-  patch "/posts/:id", to: "posts#update"
+  patch "/students/:id", to: "students#update"
   resources :school_classes, only: [:show, :new, :create, :edit]
   patch "/school_classes/:id", to: "school_classes#update"
   # You can have the root of your site routed with "root"
