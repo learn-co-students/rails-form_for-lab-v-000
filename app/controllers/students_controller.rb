@@ -1,8 +1,12 @@
-
 class StudentsController < ApplicationController
+  before_filter :find_student, only: [:show, :edit, :update, :destroy]
 
   def index
-    @students = Student.all
+    @student = Student.all
+  end
+
+  def show
+    @student = Student.find_by(id: params[:id])
   end
 
   def new
@@ -10,30 +14,37 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params(:first_name, :last_name))
-    @student.save
-    redirect_to student_path(@student)
-  end
-
-  def show
-    @student = Student.find_by(id: params[:id])
-    @student_name = @student.to_s
+    @student = Student.new(student_params)
+    if @student.save
+      redirect_to @student
+    else
+      render 'new'
+    end
   end
 
   def edit
-    @student = Student.find_by(id: params[:id])
   end
 
   def update
-    @student = Student.find_by(id: params[:id])
-    @student.update(student_params(:first_name, :last_name))
-    redirect_to student_path(@student)
+    if @student.update(student_params)
+      redirect_to @student
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @student.destroy
+    redirect_to student_index_path
   end
 
   private
+  def student_params
+    params.require(:student).permit(:first_name, :last_name)
+  end
 
-  def student_params(*args)
-    params.require(:student).permit(*args)
+  def find_student
+    @student = Student.find(params[:id])
   end
 
 end
