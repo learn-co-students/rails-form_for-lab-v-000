@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(params[:student])
+    @student = Student.create(post_params)
     redirect_to student_path(@student)
   end
 
@@ -23,8 +23,14 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    @student.update(params[:student])
+    @student.update(post_params)
     redirect_to student_path(@student)
+  end
+
+  private
+
+  def post_params
+    params.require(:student).permit(:first_name, :last_name)
   end
 
 end
