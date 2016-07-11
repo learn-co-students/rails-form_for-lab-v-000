@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'school_class/title:string'
+
+  get 'school_class/room_number:integer'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
