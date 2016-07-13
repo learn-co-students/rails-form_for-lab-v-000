@@ -1,9 +1,5 @@
 class StudentsController < ApplicationController
 
-  def index
-    @students = Student.all
-  end
-
   def show
     @student = Student.find(params[:id])
   end
@@ -13,7 +9,8 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params(:first_name, :last_name))
+    # @student = Student.new(student_params(:first_name, :last_name))
+    @student = Student.new(params.require(:student))
     @student.save
     redirect_to student_path(@student)
   end
@@ -24,13 +21,17 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-    @student.update(student_params(:first_name, :last_name))
+    # @student.update(student_params(:first_name, :last_name))
+    @student.update(params.require(:student))
     redirect_to student_path(@student)
   end
 
-  private
+  ## No need for the private method if there is no limitation
+  ## on the params arguments that can be updated.
 
-  def student_params(*args)
-    params.require(:student).permit(*args)
-  end
+  # private
+
+  # def student_params(*args)
+  #   params.require(:student).permit(*args)
+  # end
 end
