@@ -16,6 +16,7 @@ class SchoolClassesController < ApplicationController
 
   def edit
     @school_class = SchoolClass.find_by(params[:id])
+
   end
 
   def show
@@ -23,8 +24,7 @@ class SchoolClassesController < ApplicationController
   end
 
   def update
-    @school_class = SchoolClass.find(params[:id])
-    #@school_class = SchoolClass.update(params.permit(:title))
+    @school_class = SchoolClass.find_by(params[:id])    #@school_class = SchoolClass.update(params.permit(:title))
     redirect_to school_class_path(@school_class)
   end
 
