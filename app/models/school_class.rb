@@ -1,5 +1,5 @@
 class SchoolClass < ActiveRecord::Base
   def to_s
-    self.name + " - room: " + self.room_number
+    self.title + " - room: " + self.room_number.to_s
   end
 end
