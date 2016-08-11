@@ -55,5 +55,5 @@ Rails.application.routes.draw do
   #   end
 
   resources :students
-  resources :schools
+  resources :school_classes
 end
