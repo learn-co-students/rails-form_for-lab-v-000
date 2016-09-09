@@ -1,31 +1,31 @@
 class StudentsController < ApplicationController
   def show
-    @students = Student.find(params[:id])
+    @student = Student.find(params[:id])
   end
 
   def new
-    @students = Student.new
+    @student = Student.new
   end
 
   def create
-    @students = Student.create(students_params)
-    @students.save
-    redirect_to students_path(@students)
+    @student = Student.create(student_params)
+    @student.save
+    redirect_to student_path(@student)
   end
 
   def update
-    @students = Student.find(params[:id])
-    @students.update(students_params(:title))
-    redirect_to students_path(@students)
+    @student = Student.find(params[:id])
+    @student.update(student_params(:title))
+    redirect_to student_path(@student)
   end
 
   def edit
-    @students = Student.find(params[:id])
+    @student = Student.find(params[:id])
   end
 
   private
 
-  def students_params(*args)
-    params.require(:students).permit(*args)
+  def student_params(*args)
+    params.require(:student).permit(*args)
   end
 end
