@@ -10,8 +10,8 @@ describe 'form page' do
   it 'new form submits content and renders form content' do
     visit new_school_class_path
 
-    fill_in 'school_class_title', with: "Software Engineering"
-    fill_in 'school_class_room_number', with: 10
+    fill_in 'title', with: "Software Engineering"
+    fill_in 'room_number', with: 10
 
     click_on "Create School class"
 
@@ -34,8 +34,8 @@ describe 'form page' do
   it 'submitted new form creates a record in the database' do
     visit new_school_class_path
 
-    fill_in 'school_class_title', with: "Sabermetrics"
-    fill_in 'school_class_room_number', with: 42
+    fill_in 'title', with: "Sabermetrics"
+    fill_in 'room_number', with: 42
 
     click_on "Create School class"
 
