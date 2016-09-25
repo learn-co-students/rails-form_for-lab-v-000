@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
   @student.update(post_params)
   redirect_to student_path(@student)
   end
-
+ 
   private
     def post_params
       params.require(:student).permit(:first_name, :last_name)
