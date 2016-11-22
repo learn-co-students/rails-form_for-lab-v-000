@@ -50,10 +50,10 @@ describe 'form page' do
     fill_in 'school_class_title', with: "Machine Learning"
     fill_in 'school_class_room_number', with: 11
 
-    click_on "Update School class"
+     click_on "Update School class"
 
     expect(SchoolClass.last.title).to eq("Machine Learning")
-  end
+  
 end
 
 describe 'Show page' do
@@ -68,4 +68,5 @@ describe 'Show page' do
     visit school_class_path(school_class)
     expect(page).to have_content("Computer Science")
   end
+end
 end
