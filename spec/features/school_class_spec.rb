@@ -42,18 +42,18 @@ describe 'form page' do
     expect(SchoolClass.last.title).to eq("Sabermetrics")
   end
 
-  # it 'submitted edit form creates a record in the database' do
-  #   @edit_db_school_class = SchoolClass.create(title: "Computer Science", room_number: 5)
+  it 'submitted edit form creates a record in the database' do
+    @edit_db_school_class = SchoolClass.create(title: "Computer Science", room_number: 5)
 
-  #   visit edit_school_class_path(@edit_db_school_class)
+    visit edit_school_class_path(@edit_db_school_class)
 
-  #   fill_in 'school_class_title', with: "Machine Learning"
-  #   fill_in 'school_class_room_number', with: 11
+    fill_in 'school_class_title', with: "Machine Learning"
+    fill_in 'school_class_room_number', with: 11
 
-  #   # click_on "Update School class"
+     click_on "Update School class"
 
-    # expect(SchoolClass.last.title).to eq("Machine Learning")
-  # send
+    expect(SchoolClass.last.title).to eq("Machine Learning")
+  
 end
 
 describe 'Show page' do
@@ -68,4 +68,5 @@ describe 'Show page' do
     visit school_class_path(school_class)
     expect(page).to have_content("Computer Science")
   end
+end
 end
