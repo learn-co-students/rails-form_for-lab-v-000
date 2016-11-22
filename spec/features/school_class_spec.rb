@@ -53,7 +53,7 @@ describe 'form page' do
   #   # click_on "Update School class"
 
     # expect(SchoolClass.last.title).to eq("Machine Learning")
-  # end
+  # send
 end
 
 describe 'Show page' do
