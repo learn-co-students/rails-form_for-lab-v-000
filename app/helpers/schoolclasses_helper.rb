@@ -1,0 +1,2 @@
+module SchoolclassesHelper
+end
