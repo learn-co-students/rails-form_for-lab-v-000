@@ -54,5 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :students, to: [:new, :create]# :update, :edit, :show]
-  resources :school_classes, to: [:new, :create, :show] # :update, :edit
+  resources :school_classes, only: [:new, :create, :show] # :update, :edit
 end
