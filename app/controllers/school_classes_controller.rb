@@ -16,7 +16,6 @@ class SchoolClassesController < ApplicationController
   def show
     #raise params.inspect
     @school_class = SchoolClass.find(params[:id])
-
   end
   
   def edit
