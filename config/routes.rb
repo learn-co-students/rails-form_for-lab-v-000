@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :school_classes [:create, :new]
+  resources :school_classes
+  resources :students
 end
