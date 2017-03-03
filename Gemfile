@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -25,11 +25,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
 end
 
+group :development do
+  gem 'web-console'
+  gem 'spring'
+end
