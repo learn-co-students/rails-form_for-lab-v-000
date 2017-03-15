@@ -1,0 +1,2 @@
+module SchoolClassesControllerHelper
+end
