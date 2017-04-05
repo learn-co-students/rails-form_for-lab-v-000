@@ -53,7 +53,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :school_classes, only: [:new, :index, :show, :create, :edit]
-  resources :students, only: [:create, :show]
-  #get '/school_class/:id', to: 'school_classes#show', as: "school_class"
+  resources :school_classes, only: [:new, :show, :create, :edit]
+  resources :students, only: [:new, :create, :show ,:edit]
+
+  put '/school_classes/:id', to: 'school_classes#update'
+  put '/students/:id', to: 'students#update'
 end
