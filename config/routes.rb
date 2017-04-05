@@ -56,6 +56,6 @@ Rails.application.routes.draw do
   resources :school_classes, only: [:new, :show, :create, :edit]
   resources :students, only: [:new, :create, :show ,:edit]
 
-  put '/school_classes/:id', to: 'school_classes#update'
-  put '/students/:id', to: 'students#update'
+  patch '/school_classes/:id', to: 'school_classes#update'
+  patch '/students/:id', to: 'students#update'
 end
