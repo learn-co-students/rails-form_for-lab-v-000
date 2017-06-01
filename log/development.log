@@ -38,3 +38,161 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (2)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "2"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/students/new" for 192.168.2.2 at 2017-06-01 17:44:16 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 660ms (Views: 650.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/students" for 192.168.2.2 at 2017-06-01 17:44:20 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CO7auZzzgT+6IC8ZV3jxyWELNtHRC4/KNWvUqsc5H0IRZ0ziQ603hugz0jUXJe/xUG83oAZIdCa63dbSwTy/Mw==", "student"=>{"first_name"=>"dsg", "last_name"=>"dfh"}, "commit"=>"Create Student"}
+Unpermitted parameter: last_name
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["first_name", "dsg"], ["created_at", "2017-06-01 21:44:20.223215"], ["updated_at", "2017-06-01 21:44:20.223215"]]
+  [1m[35m (23.8ms)[0m  commit transaction
+Redirected to http://192.168.2.9:3000/students/3
+Completed 302 Found in 29ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/students/3" for 192.168.2.2 at 2017-06-01 17:44:20 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/3" for 192.168.2.2 at 2017-06-01 17:45:07 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    1: <h1><%= @student.first_name %></h1>
+  app/views/students/show.html.erb:1:in `_app_views_students_show_html_erb__3285776137214127662_70068835467540'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/students/3" for 192.168.2.2 at 2017-06-01 17:45:45 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (no implicit conversion of nil into String):
+    1: <h1><%= @student.to_s %></h1>
+  app/models/student.rb:3:in `+'
+  app/models/student.rb:3:in `to_s'
+  app/views/students/show.html.erb:1:in `_app_views_students_show_html_erb__3285776137214127662_34872040'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.5ms)
+
+
+Started GET "/students/3" for 192.168.2.2 at 2017-06-01 17:46:06 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/3" for 192.168.2.2 at 2017-06-01 17:46:34 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/new" for 192.168.2.2 at 2017-06-01 17:46:39 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 192.168.2.2 at 2017-06-01 17:46:42 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rF11aPctj4E8l/OLW3dFxSgz6upjXYv9kIHUL8cXrem11OMzKHM5OG6EDqcbKlv9GVfrm7QecBEfN9ZXwRINmA==", "student"=>{"first_name"=>"gfdn", "last_name"=>"xfbn"}, "commit"=>"Create Student"}
+Unpermitted parameter: last_name
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["first_name", "gfdn"], ["created_at", "2017-06-01 21:46:42.508161"], ["updated_at", "2017-06-01 21:46:42.508161"]]
+  [1m[35m (5.5ms)[0m  commit transaction
+Redirected to http://192.168.2.9:3000/students/4
+Completed 302 Found in 8ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/students/4" for 192.168.2.2 at 2017-06-01 17:46:42 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered students/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/new" for 192.168.2.2 at 2017-06-01 17:47:08 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/students" for 192.168.2.2 at 2017-06-01 17:47:11 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2O8DW+hguk5GnfblAjkqesWYL0XQhvykDtzoC2m1GwDBZpUANz4M9xSOC8lCZDRC9PwuNAfFB0iBaupzb7C7cQ==", "student"=>{"first_name"=>"sdhg", "last_name"=>"sdfhb"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "sdhg"], ["last_name", "sdfhb"], ["created_at", "2017-06-01 21:47:11.190114"], ["updated_at", "2017-06-01 21:47:11.190114"]]
+  [1m[35m (5.2ms)[0m  commit transaction
+Redirected to http://192.168.2.9:3000/students/5
+Completed 302 Found in 8ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/students/5" for 192.168.2.2 at 2017-06-01 17:47:11 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered students/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/5" for 192.168.2.2 at 2017-06-01 17:47:59 -0400
+Cannot render console from 192.168.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered students/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.1ms)
