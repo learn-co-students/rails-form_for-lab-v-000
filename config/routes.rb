@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :school_classes, only: [:index, :show]
-  get '/school_classes' => 'school_classes#new'
+  resources :school_classes
+  resources :students
+  # get '/school_classes', to: 'school_classes#index'
+  # get '/school_classes/new' => 'school_classes#new'
+  # post '/school_classes' => 'school_classes#create'
+  # get '/school_classes/:id' => 'school_classes#show'
+  # get '/school_classes/:id/edit' => 'school_classes#edit'
+  # patch '/school_classes/:id' => 'school_classes#update'
+
+  # get '/students', to: 'students#index'
+  # get '/students/new' => 'students#new'
+  # post '/students' => 'students#create'
+  # get '/students/:id' => 'students#show'
+  # get '/students/:id/edit' => 'students#edit'
+  # patch '/students/:id' => 'students#update'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
