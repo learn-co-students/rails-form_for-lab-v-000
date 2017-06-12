@@ -24,7 +24,6 @@ You will also need to create routes for each path mentioned above.
 
 The tests for this application are located in the `spec/controllers/`, `spec/features/`, and `spec/models/` directories.
 
-
 ## Requirements
 
 Utilize the `form_for` methods for all four of the forms and integrate each `form_for` call with the respective controller actions. Also make sure to utilize the `<%= f.submit %>` submit button syntax to have the button text automatically generated.
