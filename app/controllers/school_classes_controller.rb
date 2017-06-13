@@ -4,11 +4,18 @@ class SchoolClassesController < ApplicationController
   end
 
   def create
+    @school_class.create(params.require(:school_class)
+    redirect_to school_class_path(@school_class)
   end
 
   def show
+    @school_class = SchoolClass.find(params[:id])
   end
 
-  def 
+  def edit
+  end
+
+  def update
+  end
 
 end
