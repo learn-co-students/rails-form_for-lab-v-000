@@ -38,3 +38,521 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (20170613214546)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170613214546"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for ::1 at 2017-06-13 16:08:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 17ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for ::1 at 2017-06-13 16:08:44 -0700
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 790ms (Views: 785.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/students" for ::1 at 2017-06-13 16:08:54 -0700
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fv/edDG3YZ0REdmW1U4785/WnOE77nzYEwOs7tQKSy67zA226ZsQ617eldDfDoeaX1XuIIfKVE6meulUy1qGMg==", "student"=>{"first_name"=>"Sophia", "last_name"=>"Varella"}, "commit"=>"Create Student"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "students" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-06-13 23:08:54.121941"], ["updated_at", "2017-06-13 23:08:54.121941"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/students/3
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/students/3" for ::1 at 2017-06-13 16:08:54 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <h1>Student Information:</h1>
+    2: 
+    3: <%= @student.to_s %>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/show.html.erb:3:in `_app_views_students_show_html_erb___4068071183287525848_70207759501540'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (57.0ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (126.8ms)
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:11:36 -0700
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/students/new" for ::1 at 2017-06-13 16:11:46 -0700
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for ::1 at 2017-06-13 16:11:55 -0700
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0NuY5rpQCCxEL25ltzcQeQdNTszv0hY3Ayd5z1WnPOAV6EskYnx5WgvgIiO9d6wQx848DVP2PqG2Xjx1Svfx/A==", "student"=>{"first_name"=>"Sophia", "last_name"=>"Varella"}, "commit"=>"Create Student"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "students" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-06-13 23:11:55.158556"], ["updated_at", "2017-06-13 23:11:55.158556"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/students/4
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/students/4" for ::1 at 2017-06-13 16:11:55 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered students/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/4" for ::1 at 2017-06-13 16:12:29 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/1" for ::1 at 2017-06-13 16:12:36 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered students/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:12:59 -0700
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <% @students.each do |student| %>
+    2:   <div><%= student.to_s %></div>
+    3: <% end %>
+  app/models/student.rb:4:in `to_s'
+  app/views/students/index.html.erb:2:in `block in _app_views_students_index_html_erb___2411730040859949783_70207805164200'
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___2411730040859949783_70207805164200'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (54.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (119.0ms)
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:13:41 -0700
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <% @students.each do |student| %>
+    2:   <div><%= student.to_s %></div>
+    3: <% end %>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:2:in `block in _app_views_students_index_html_erb___2411730040859949783_70207805164200'
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___2411730040859949783_70207805164200'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (49.2ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (112.1ms)
+
+
+Started GET "/students/1" for ::1 at 2017-06-13 16:14:32 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered students/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:14:36 -0700
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.1ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <% @students.each do |student| %>
+    2:   <div><%= student.to_s %></div>
+    3: <% end %>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:2:in `block in _app_views_students_index_html_erb___2411730040859949783_70207813570760'
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___2411730040859949783_70207813570760'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.0ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (109.5ms)
+
+
+Started GET "/school_classes" for ::1 at 2017-06-13 16:14:50 -0700
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2017-06-13 16:14:54 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find SchoolClass with 'id'=1):
+  app/controllers/school_classes_controller.rb:7:in `show'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (46.5ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (105.1ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-06-13 16:15:05 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-06-13 16:15:21 -0700
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I5dt4XZBX9P0StsvyGo9Xc50xUxGeLmS9AzIKrBHbFPmpL4jrm0upbuFl2nCKoE0Dve3jfpckQRBdY2QrxehTw==", "school_class"=>{"title"=>"Biology", "room_number"=>"1"}, "commit"=>"Create School class"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "school_classes" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2017-06-13 23:15:21.011885"], ["updated_at", "2017-06-13 23:15:21.011885"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/school_classes/1
+Completed 302 Found in 3ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2017-06-13 16:15:21 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes" for ::1 at 2017-06-13 16:18:22 -0700
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-06-13 16:18:28 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2017-06-13 16:22:07 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2017-06-13 16:22:33 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/1" for ::1 at 2017-06-13 16:22:39 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-06-13 16:24:13 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/school_classes" for ::1 at 2017-06-13 16:27:24 -0700
+Processing by SchoolClassesController#index as HTML
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-06-13 16:27:30 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-06-13 16:27:42 -0700
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8yZp8PH/KTOf05smnszCBo30SjOPeHZcam0Wo9niEkY2FboyKdNYRdAc12CUjH5vTXc48jNcXsrfFFMZxrLfWg==", "school_class"=>{"title"=>"Maths", "room_number"=>"4"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "school_classes" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2017-06-13 23:27:42.988708"], ["updated_at", "2017-06-13 23:27:42.988708"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/school_classes/2
+Completed 302 Found in 5ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/school_classes/2" for ::1 at 2017-06-13 16:27:42 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/new" for ::1 at 2017-06-13 16:29:08 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-06-13 16:29:44 -0700
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1fOO2g8AumqNoMYyRtirbO7Lfl3pEU5ohuhIVep9JU8QwF0Y1yzLHMJvinRMmBcFLkgMnFU1Zv4zkQ3v9S3oUw==", "school_class"=>{"title"=>"", "room_number"=>""}, "commit"=>"Create School class"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `pry' for #<Binding:0x007fb50fc0f370>
+Did you mean?  try):
+  app/controllers/school_classes_controller.rb:16:in `create'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (50.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (111.3ms)
+
+
+Started POST "/school_classes" for ::1 at 2017-06-13 16:30:21 -0700
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1fOO2g8AumqNoMYyRtirbO7Lfl3pEU5ohuhIVep9JU8QwF0Y1yzLHMJvinRMmBcFLkgMnFU1Zv4zkQ3v9S3oUw==", "school_class"=>{"title"=>"Test", "room_number"=>"12"}, "commit"=>"Create School class"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test"], ["room_number", 12], ["created_at", "2017-06-13 23:30:21.636829"], ["updated_at", "2017-06-13 23:30:21.636829"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/school_classes/3
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/school_classes/3" for ::1 at 2017-06-13 16:30:21 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/3" for ::1 at 2017-06-13 16:30:46 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered school_classes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:31:58 -0700
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    1: <% @students.each do |student| %>
+    2:   <div><%= student.to_s %></div>
+    3: <% end %>
+  app/models/student.rb:3:in `to_s'
+  app/views/students/index.html.erb:2:in `block in _app_views_students_index_html_erb___2411730040859949783_70207813570760'
+  app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb___2411730040859949783_70207813570760'
+
+
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.9ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/sophia/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (102.8ms)
+  [1m[36mStudent Load (1.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[36mStudent Load (1.0ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1[0m
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 4]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT "students".* FROM "students" WHERE "students"."first_name" IS NULL[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."first_name" IS NULL
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."first_name" IS NULL
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "students" WHERE "students"."id" = ?  [["id", 2]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:35:17 -0700
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2017-06-13 16:35:17 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2017-06-13 16:35:17 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2017-06-13 16:35:17 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2017-06-13 16:35:17 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2017-06-13 16:35:17 -0700
+
+
+Started GET "/students/new" for ::1 at 2017-06-13 16:35:23 -0700
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for ::1 at 2017-06-13 16:36:43 -0700
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1bK6rhXHaCNJMYr0FpiUmnvnhMBdQlmnYn1eO9QmcUgQgWlszesZVQb+xrIc2Cjzu2T2AeFmcTHXBBuBy3a8VA==", "student"=>{"first_name"=>"Kyriacos", "last_name"=>"Souroullas"}, "commit"=>"Create Student"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["first_name", "Kyriacos"], ["last_name", "Souroullas"], ["created_at", "2017-06-13 23:36:43.900587"], ["updated_at", "2017-06-13 23:36:43.900587"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/students/5
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/students/5" for ::1 at 2017-06-13 16:36:43 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered students/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/5" for ::1 at 2017-06-13 16:36:56 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered students/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2017-06-13 16:36:56 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2017-06-13 16:36:56 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2017-06-13 16:36:56 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2017-06-13 16:36:56 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2017-06-13 16:36:56 -0700
+
+
+Started GET "/students" for ::1 at 2017-06-13 16:37:02 -0700
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (0.1ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.1ms)
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"[0m
