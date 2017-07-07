@@ -18,6 +18,17 @@ class StudentsController < ApplicationController
     redirect_to student_path(@student)
   end
 
+  def update
+    @student = Student.find_by(id: params[:id])
+    @student.update(student_params(:first_name, :last_name))
+    redirect_to student_path(@student)
+  end
+  
+  def edit
+    @student = Student.find_by(id: params[:id])
+  end
+  
+
   private
 
   def student_params(*args)
