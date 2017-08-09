@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :student do
+  factory :students do
     first_name "Daenerys"
     last_name "Targaryen"
   end
