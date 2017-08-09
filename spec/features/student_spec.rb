@@ -64,7 +64,7 @@ describe 'Show page' do
     expect(page.status_code).to eq(200)
   end
 
-  it 'renders the student first_name' do
+  it 'renders the students first_name' do
     visit student_path(student)
     expect(page).to have_content("Daenerys")
   end
