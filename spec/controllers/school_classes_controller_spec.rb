@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'pry'
 describe SchoolClassesController do
 
   describe "POST create" do
@@ -9,7 +9,7 @@ describe SchoolClassesController do
           post :create, { :school_class => { :title => "Computer Science", :room_number => 5 } }
         }.to change(SchoolClass,:count).by(1)
       end
-      
+
       it "redirects to the new school_class" do
         post :create, { :school_class => { :title => "Computer Science", :room_number => 5 } }
         expect(response).to redirect_to SchoolClass.last
