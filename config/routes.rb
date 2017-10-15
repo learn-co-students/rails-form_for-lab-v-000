@@ -13,6 +13,13 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  # get '/products', to: 'products#index', as: :products
+  # get '/products/:id', to: 'products#show', as: :product
+  # get '/products/new', to: 'products#new', as: :new_product
+  # post '/products', to: 'products#create', as: :products
+  # get '/products/:id/edit', to: 'products#edit', as: :edit_product
+  # patch '/products/:id', to: 'products#update', as: :product
+  # delete '/products/:id',
 
   # Example resource route with options:
   #   resources :products do
@@ -53,4 +60,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :students, :school_classes
 end
