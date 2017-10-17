@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :accounts
+  get 'admin/dashboard'
+
+  get 'admin/stats'
+
+  get 'admin/financials'
+
+  get 'admin/settings'
+
   resources :students, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :school_classes, only: [:index, :new, :create, :show, :edit, :update]
