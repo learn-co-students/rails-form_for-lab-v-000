@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+
+  resources :accounts
+  get 'admin/dashboard'
+
+  get 'admin/stats'
+
+  get 'admin/financials'
+
+  get 'admin/settings'
+
+  resources :students, only: [:index, :new, :create, :show, :edit, :update]
+
+  resources :school_classes, only: [:index, :new, :create, :show, :edit, :update]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
