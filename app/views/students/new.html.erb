@@ -1,0 +1,29 @@
+<h1>Student Form</h1>
+
+<%= form_for(@student) do |f| %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br>
+  <%= f.submit %>
+<% end %>
+
+<!-- Above, the Rails form helper method form_for autogenerates the HTML form below:
+
+<form accept-charset="UTF-8" action="/students" method="POST">
+  <label for="student_first_name">First name</label><br>
+  <input type="text" name="student[first_name]" id="student_first_name"><br>
+  <label for="student_last_name">Last name</label><br>
+  <input type="text" name="student[last_name]" id="student_last_name"><br>
+  <input name="commit" type="submit" value="Create Student">
+</form>
+
+-form_for method takes argument of @student instance b/c form_for is directly connected to Student class
+-params hash must have top-level "student" key that points to (and stores) student hash nested inside params
+-form_for automatically knows that we're creating a new student record, so upon form submission,
+it automatically sends a POST request to "/students". We do NOT have to specify path nor method.
+-form_for also automatically creates hidden <input> for authenticity token
+-iterator variable f is used on the new form object to dynamically assign form field elements
+to each of the student instance's attributes (first_name and last_name)
+-By passing in the attributes as a symbol (:first_name and :last_name),
+that automatically tells the form field what student attribute to be associated with

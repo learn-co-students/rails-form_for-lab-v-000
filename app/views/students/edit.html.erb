@@ -1,0 +1,31 @@
+<h1>Edit Student Form</h1>
+
+<%= form_for(@student) do |f| %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br>
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br>
+  <%= f.submit %>
+<% end %>
+
+<!-- iterator variable f is used on the new form object to dynamically assign form field elements
+to each of the student instance's attributes (first_name and last_name),
+along with auto-filling the values for each field.
+
+By passing in the attributes as a symbol (:first_name and :last_name),
+that automatically tells the form field what student attribute to be associated with,
+and it is also what auto-fills the values in the form fields
+
+form_for is smart enough to know that since it's dealing with a pre-existing student record,
+i.e., a pre-existing student instance is being edited, updated,
+we will use PATCH for the form method
+
+form_for Rails helper method above autogenerates the HTML form below:
+<form accept-charset="UTF-8" action="/students/<%= @student.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="student_first_name">First name</label><br>
+  <input type="text" name="student[first_name]" id="student_first_name" value="<%= @student.first_name %>"><br>
+  <label for="student_last_name">Last name</label><br>
+  <input type="text" name="student[last_name]" id="student_last_name" value="<%= @student.last_name %>"><br>
+  <input name="commit" type="submit" value="Update Student">
+</form>

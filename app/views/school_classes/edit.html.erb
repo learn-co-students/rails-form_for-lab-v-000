@@ -1,0 +1,31 @@
+<h1>Edit School Class</h1>
+
+<%= form_for(@school_class) do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :room_number %><br>
+  <%= f.number_field :room_number %><br>
+  <%= f.submit %>
+<% end %>
+
+<!-- iterator variable f is used on the new form object to dynamically assign form field elements
+to each of the school_class instance's attributes (title and room_number),
+along with auto-filling the values for each field.
+
+By passing in the attributes as a symbol (:title and :room_number),
+that automatically tells the form field what school_class attribute to be associated with,
+and it is also what auto-fills the values in the form fields
+
+form_for is smart enough to know that since it's dealing with a pre-existing school_class record,
+i.e., a pre-existing school_class instance is being edited, updated,
+we will use PATCH for the form method
+
+form_for Rails helper method above autogenerates the HTML form below:
+<form accept-charset="UTF-8" action="/school_classes/<%= @school_class.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="school_class_title">Title</label><br>
+  <input type="text" name="school_class[title]" id="school_class_title" value="<%= @school_class.title %>"><br>
+  <label for="school_class_room_number">Room number</label><br>
+  <input type="number" name="school_class[room_number]" id="school_class_room_number" value="<%= @school_class.room_number %>"><br>
+  <input name="commit" type="submit" value="Update School class">
+</form>

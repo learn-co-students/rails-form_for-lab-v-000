@@ -1,0 +1,27 @@
+<h1>School Class Form</h1>
+
+<%= form_for(@school_class) do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :room_number %><br>
+  <%= f.number_field :room_number %><br>
+  <%= f.submit %>
+<% end %>
+
+<!-- form_for Rails form helper method above autogenerates the HTML form below:
+
+<form accept-charset="UTF-8" action="/school_classes" method="POST">
+  <label for="school_class_title">Title</label>
+  <input type="text" name="school_class[title]" id="school_class_title">
+  <label for="school_class_room_number">Room number</label>
+  <input type="number" name="school_class[room_number] id="school_class_room_number">
+  <input name="commit" type="submit" value="Create School class">
+</form>
+
+What params looks like when form to create a new school_class is submitted:
+params = {
+  "school_class" => {
+    "title" => "title attribute value entered in form",
+    "room_number" => "room_number attribute value entered in form"
+  }
+}
