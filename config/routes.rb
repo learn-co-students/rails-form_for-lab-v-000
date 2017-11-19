@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
 
 
-  resources :school_classes, only: [:new, :show, :create, :edit, :update]
+  # resources :school_classes, only: [:new, :show, :create, :edit, :update]
 
-  # get '/school_classes/new' => 'school_classes#new', as: :new_school_class
+  get '/school_classes/new' => 'school_classes#new', as: :new_school_class
+  post '/school_classes' => 'school_classes#create'
+  get '/school_classes/:id' => 'school_classes#show', as: :school_class
 
 end
