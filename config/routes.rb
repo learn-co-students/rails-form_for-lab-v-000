@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :students
-  post '/school_classes', to: 'school_classes#create'
-  get '/school_classes/new', to: 'school_classes#new', as: 'new_school_class'
-  get '/school_classes/:id/edit', to: 'school_classes#edit', as: 'edit_school_class'
-  get '/school_classes/:id', to: 'school_classes#show', as: 'school_class'
-  resources :school_classes, only: [:update]
+  resources :school_classes, except: [:destroy, :index]
+
+  #post '/school_classes', to: 'school_classes#create'
+  #get '/school_classes/new', to: 'school_classes#new', as: 'new_school_class'
+  #get '/school_classes/:id/edit', to: 'school_classes#edit', as: 'edit_school_class'
+  #get '/school_classes/:id', to: 'school_classes#show', as: 'school_class'
+  #resources :school_classes, only: [:update]
 
 
 
