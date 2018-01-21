@@ -461,3 +461,43 @@ AbstractController::ActionNotFound (The action 'show' could not be found for Stu
 
 
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/students/new" for 198.85.222.158 at 2018-01-21 21:37:02 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  Rendered students/new.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 275ms (Views: 259.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/students" for 198.85.222.158 at 2018-01-21 21:37:08 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U34HfqS2nu9CHc/0FMCogqH3rw/OWc2xS5JPU6OI7U6PtcE9ksjRZlrNplGpV6Mtne6QppfK/KImEmIaloNIsQ==", "student"=>{"first_name"=>"Mrs", "last_name"=>"So and so"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "Mrs"], ["last_name", "So and so"], ["created_at", "2018-01-21 21:37:08.435013"], ["updated_at", "2018-01-21 21:37:08.435013"]]
+  [1m[35m (31.7ms)[0m  commit transaction
+Redirected to http://174.138.35.100:40650/students/4
+Completed 302 Found in 35ms (ActiveRecord: 32.1ms)
+
+
+Started GET "/students/4" for 198.85.222.158 at 2018-01-21 21:37:08 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `id' for {"controller"=>"students", "action"=>"show", "id"=>"4"}:ActionController::Parameters):
+  app/controllers/students_controller.rb:13:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.6ms)
+
+
+Started GET "/students/4" for 198.85.222.158 at 2018-01-21 21:37:23 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered students/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 13.3ms | ActiveRecord: 0.8ms)
