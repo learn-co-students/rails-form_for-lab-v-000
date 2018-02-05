@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :set_student, only: [:show, :edit, :update]
 
   def new
     @student = Student.new
@@ -10,22 +11,22 @@ class StudentsController < ApplicationController
   end
 
   def show
-    find_student
+    
   end
 
   def edit
-    find_student
+    
   end
 
   def update
-    find_student
+    
     @student.update(params.require(:student).permit(:first_name, :last_name))
     redirect_to student_path(@student)
   end
 
   private
 
-  def find_student
+  def set_student
     @student = Student.find(params[:id])
   end
 
