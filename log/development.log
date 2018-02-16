@@ -38,3 +38,91 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClasses (2)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "2"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/school_classes/new" for 98.7.36.46 at 2018-02-16 06:43:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.4ms)
+
+SyntaxError (/home/wakenight123/code/labs/rails-form_for-lab-v-000/app/views/school_classes/new.html.erb:11: syntax error, unexpected keyword_end
+'.freeze;@output_buffer.append=( end );@output_buffer.safe_append='
+                                    ^
+/home/wakenight123/code/labs/rails-form_for-lab-v-000/app/views/school_classes/new.html.erb:13: syntax error, unexpected keyword_ensure, expecting ')'
+/home/wakenight123/code/labs/rails-form_for-lab-v-000/app/views/school_classes/new.html.erb:15: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/school_classes/new.html.erb:11: syntax error, unexpected keyword_end
+  app/views/school_classes/new.html.erb:13: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/school_classes/new.html.erb:15: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (58.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (86.7ms)
+
+
+Started GET "/school_classes/new" for 98.7.36.46 at 2018-02-16 06:43:35 +0000
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (82.9ms)
+Completed 200 OK in 907ms (Views: 906.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for 98.7.36.46 at 2018-02-16 06:43:50 +0000
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aIRdm4cwi+NZCIrckI0tXPiRvy3v6h/UjssMh46J58jCkH8KY6BgcNaO2SXijMtuNFdJL/EMXphNCdIx52Jb6w==", "school_class"=>{"title"=>"Socrates", "room_number"=>"25"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Socrates"], ["room_number", 25]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Redirected to http://159.203.84.37:30000/school_classes/1
+Completed 302 Found in 7ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/school_classes/1" for 98.7.36.46 at 2018-02-16 06:43:50 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1/edit" for 98.7.36.46 at 2018-02-16 06:45:02 +0000
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes/1/edit" for 98.7.36.46 at 2018-02-16 06:46:39 +0000
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/edit.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 36ms (Views: 33.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/school_classes/1" for 98.7.36.46 at 2018-02-16 06:46:50 +0000
+Processing by SchoolClassesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LtWzGYpMS6jhFJGo711lOTI2eBlLr+jiM+fthivJ3n+EwZGIbtygO26SwlGdXIML/vCOG1VJqa7wJTMwQiJiXA==", "school_class"=>{"title"=>"Socrates 2018", "room_number"=>"29"}, "commit"=>"Update School class", "id"=>"1"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "school_classes" SET "title" = ?, "room_number" = ? WHERE "school_classes"."id" = ?  [["title", "Socrates 2018"], ["room_number", 29], ["id", 1]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.84.37:30000/school_classes/1
+Completed 302 Found in 11ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/school_classes/1" for 98.7.36.46 at 2018-02-16 06:46:51 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.1ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.1ms)
