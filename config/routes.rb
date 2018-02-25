@@ -1,9 +1,13 @@
   Rails.application.routes.draw do
   resources :students, only: [:show, :new, :create]
-  
+  resources :school_classes, only: [:show, :new, :create]
   get 'students/:id/edit', to: 'students#edit', as: :edit_student 
   
   patch 'students/:id', to: 'students#update'
+  
+   get 'school_classes/:id/edit', to: 'school_classes#edit', as: :edit_school_class 
+  
+  patch 'school_classes/:id', to: 'school_classes#update'
 
 end
   # The priority is based upon order of creation: first created -> highest priority.
