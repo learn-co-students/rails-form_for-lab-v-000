@@ -1,6 +1,7 @@
 # `form_for` Lab
 
 ## Objectives
+
 1. Use `form_for` to build a `new` form
 2. Use `form_for` to build an `edit` form
 3. Mass assign form data to `ActiveRecord` instances on `new` and `edit`
