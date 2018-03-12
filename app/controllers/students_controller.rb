@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.update(student_params(:first_name, :last_name))
+    @student = Student.update_all(student_params(:first_name, :last_name))
     redirect_to student_path(@student)
   end
 
