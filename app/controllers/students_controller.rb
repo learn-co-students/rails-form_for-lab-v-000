@@ -16,7 +16,7 @@ class StudentsController < ApplicationController
 	  @student.first_name = params[:first_name]
 	  @student.last_name = params[:last_name]
 	  @student.save
-	  redirect_to post_path(@student)
+	  redirect_to student_path(@student)
 	end
 
 	def edit
@@ -26,6 +26,6 @@ class StudentsController < ApplicationController
 	def update
 	  @student = Student.find(params[:id])
 	  @student.update(first_name: params[:first_name], last_name: params[:last_name])
-	  redirect_to post_path(@student)
+	  redirect_to student_path(@student)
 	end
 end
