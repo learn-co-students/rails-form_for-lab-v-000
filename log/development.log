@@ -38,3 +38,53 @@ Started GET "/" for ::1 at 2015-11-18 13:37:10 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /Users/admin/.rvm/gems/ruby-2.1.2/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchoolClass (20180402173009)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "school_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "room_number" integer) [0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20180402173009"]]
+  [1m[36m (222.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/school_classes/new" for 127.0.0.1 at 2018-04-02 13:24:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 603ms (Views: 581.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/school_classes" for 127.0.0.1 at 2018-04-02 13:24:38 -0500
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4xVLDDdFXVLjPHYTGvMxfbGhqGMARzPO5U9UTgKO8qgyP4h7vPIAIatAs/VVmhhTVVxo+6lI+qz4QG6O9h4GCQ==", "school_class"=>{"title"=>"Abnormal Psychology", "room_number"=>"215"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (47.2ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Abnormal Psychology"], ["room_number", 215]]
+  [1m[35m (339.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/school_classes/1
+Completed 302 Found in 436ms (ActiveRecord: 387.2ms)
+
+
+Started GET "/school_classes/1" for 127.0.0.1 at 2018-04-02 13:24:39 -0500
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/school_classes" for 127.0.0.1 at 2018-04-02 13:26:16 -0500
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4xVLDDdFXVLjPHYTGvMxfbGhqGMARzPO5U9UTgKO8qgyP4h7vPIAIatAs/VVmhhTVVxo+6lI+qz4QG6O9h4GCQ==", "school_class"=>{"title"=>"Abnormal Psychology", "room_number"=>"215"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "Abnormal Psychology"], ["room_number", 215]]
+  [1m[35m (300.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/school_classes/2
+Completed 302 Found in 306ms (ActiveRecord: 301.1ms)
+
+
+Started GET "/school_classes/2" for 127.0.0.1 at 2018-04-02 13:26:16 -0500
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchoolClass Load (0.1ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered school_classes/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.1ms)
