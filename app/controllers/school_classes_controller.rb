@@ -1,5 +1,6 @@
 class SchoolClassesController < ApplicationController
   def new
+    @school_class=SchoolClass.new
     #do we need anything here?
   end
   def edit
@@ -9,7 +10,8 @@ class SchoolClassesController < ApplicationController
     @school_class= SchoolClass.find(params[:id])
   end
   def create
-    @school_class= SchoolClass.create(first_name: params[:first_name], last_name: params[:last_name])
+    @school_class= SchoolClass.new(params.require(:school_class))
+    @school_class.save
     redirect_to school_class_path(@school_class)
   end
   def update
