@@ -5,7 +5,7 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def new
-		 
+		 @school_class = SchoolClass.new
 	end
 
 	def edit
@@ -13,7 +13,8 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def create
-		@school_class = SchoolClass.create(school_class_params(:title, :room_number))
+		@school_class = SchoolClass.new(school_class_params(:title, :room_number))
+  		@school_class.save
   		redirect_to school_class_path(@school_class)
 	end
 
