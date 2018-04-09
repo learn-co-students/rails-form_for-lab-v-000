@@ -1,5 +1,7 @@
 class SchoolClassesController < ApplicationController
-  
+  before_action :find_school_class, except: [:new, :create]
+
+
   def new
     @school_class = SchoolClass.new
   end
@@ -11,15 +13,14 @@ class SchoolClassesController < ApplicationController
   end
 
   def show
-    @school_class = SchoolClass.find(params[:id])
+
   end
 
   def edit
-    @school_class = SchoolClass.find(params[:id])
+    
   end
 
   def update
-    @school_class = SchoolClass.find(params[:id])
     @school_class.update(school_params(:title, :room_number))
     redirect_to school_class_path(@school_class)
   end
@@ -28,6 +29,10 @@ class SchoolClassesController < ApplicationController
 
   def school_params(*args)
 		params.require(:school_class).permit(*args)
-	end
+  end
+  
+  def find_school_class
+    @school_class = SchoolClass.find(params[:id])
+  end
 
 end

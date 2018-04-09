@@ -69,3 +69,36 @@ RuntimeError ({"utf8"=>"✓", "authenticity_token"=>"lcO6aM7JA73V5GcNwxkBi7qPj1R
   Rendered /home/learn/.rvm/gems/ruby-2.3.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
   Rendered /home/learn/.rvm/gems/ruby-2.3.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
   Rendered /home/learn/.rvm/gems/ruby-2.3.6/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.0ms)
+
+
+Started GET "/school_classes/new" for 10.0.0.88 at 2018-04-09 17:27:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 249ms (Views: 233.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/school_classes" for 10.0.0.88 at 2018-04-09 17:27:51 -0400
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kRWrQs8lkVHSAj/YF2oyv4w1FFsq9a60zlwR3gsGe6/dzf++MifvS/8KuQnuNuISIaf61Y4j2cy0MxsEiyqH+w==", "school_class"=>{"title"=>"History", "room_number"=>"115"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "school_classes" ("title", "room_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "History"], ["room_number", 115], ["created_at", "2018-04-09 21:27:51.646406"], ["updated_at", "2018-04-09 21:27:51.646406"]]
+  [1m[35m (30.9ms)[0m  commit transaction
+Redirected to http://10.0.0.238:3000/school_classes/1
+Completed 302 Found in 56ms (ActiveRecord: 31.7ms)
+
+
+Started GET "/school_classes/1" for 10.0.0.88 at 2018-04-09 17:27:51 -0400
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 55ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1/edit" for 10.0.0.88 at 2018-04-09 17:27:55 -0400
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/edit.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 82ms (Views: 48.0ms | ActiveRecord: 0.2ms)
