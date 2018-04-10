@@ -1,3 +1,0 @@
-class Students < ApplicationController
-
-end

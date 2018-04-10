@@ -1,3 +1,0 @@
-class SchoolClasses < ApplicationController
-
-end
