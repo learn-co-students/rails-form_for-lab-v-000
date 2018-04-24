@@ -7,7 +7,7 @@ class SchoolClassesController < ApplicationController
   def create # this is where the form data is sent after the form is filled out in the new route
     #the params that are sent are used to create the new schoolclass
     #@schoolclass = SchoolClass.create(params[:school_class])
-    @schoolclass = SchoolClass.create.create(params.require(:school_class).permit(:title, :room_number))
+    @schoolclass = SchoolClass.create(params.require(:school_class).permit(:title, :room_number))
     redirect_to school_class_path(@schoolclass) #where does this redirect? to show?
   end
 
@@ -22,8 +22,14 @@ class SchoolClassesController < ApplicationController
   def update
     @schoolclass = SchoolClass.find(params[:id])
     #@schoolclass.update(params[:school_class])
-    @schoolclass.update(params.require(:school_class).permit(:title, :room_number))
+    #@schoolclass.update(params.require(:school_class).permit(:title, :room_number))
+    @schoolclass.update(schoolclass_params(:title, :room_number))
     redirect_to school_class_path(@schoolclass)
+  end
+
+  private
+  def schoolclass_params(*args)
+    params.require(:school_class).permit(*args)
   end
 
 end
