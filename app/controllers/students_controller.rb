@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
 	end 
 
 	def create 
-		@student = Student.create(params[:student])
+		@student = Student.create(params.require(:student))
 		redirect_to student_path(@student)
 	end 
 
@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
 	end 
 
 	def update 
-		@student.update(params[:student])
+		@student.update(params.require(:student))
 		redirect_to student_path(@student) 
 	end 
 

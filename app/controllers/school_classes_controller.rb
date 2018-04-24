@@ -6,7 +6,7 @@ class SchoolClassesController < ApplicationController
 	end 
 
 	def create 
-		@school_class = SchoolClass.create(params[:school_class])
+		@school_class = SchoolClass.create(params.require(:school_class))
 		redirect_to school_class_path(@school_class)
 	end 
 
@@ -19,7 +19,7 @@ class SchoolClassesController < ApplicationController
 	end 
 
 	def update 
-		@school_class.update(params[:school_class])
+		@school_class.update(params.require(:school_class))
 		redirect_to school_class_path(@school_class)
 	end 
 
