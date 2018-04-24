@@ -12,6 +12,7 @@ class SchoolClassesController < ApplicationController
 
   def show
     @schooclass = SchoolClass.find(params[:id])
+    binding.pry
   end
 
   def edit
