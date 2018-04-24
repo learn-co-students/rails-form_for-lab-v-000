@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
-  resources :school_classes, only: [:new, :edit, :create, :show]
-  resources :students, only:  [:new, :edit, :create, :show ]
+  #   end                            :index, :show, :new, :create, :edit, :update
+  resources :school_classes, only: [:index, :show, :new, :create, :edit, :update]
+  resources :students, only:  [:index, :show, :new, :create, :edit, :update]
 end
