@@ -1,6 +1,6 @@
-class CreateTests < ActiveRecord::Migration
+class CreateTestsTwos < ActiveRecord::Migration
   def change
-    create_table :tests do |t|
+    create_table :test_twos do |t|
       t.string :title
       t.integer :room_number
 
