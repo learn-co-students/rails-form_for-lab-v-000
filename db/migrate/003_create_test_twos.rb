@@ -1,4 +1,4 @@
-class CreateTestsTwos < ActiveRecord::Migration
+class CreateTestTwos < ActiveRecord::Migration
   def change
     create_table :test_twos do |t|
       t.string :title
