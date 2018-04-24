@@ -1,12 +1,12 @@
 class SchoolClassesController < ApplicationController
 
   def new
-    binding.pry
+    @schoolclass = SchoolClass.new
   end
 
   def create
-    @school_class = SchoolClass.create(params[:school_class])
-    redirect_to school_class_path(@school_class)
+    @schoolclass = SchoolClass.create(params[:school_class])
+    redirect_to school_class_path(@schoolclass)
   end
 
   def show
