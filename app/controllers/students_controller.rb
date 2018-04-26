@@ -1,17 +1,21 @@
-class StudentsController < ApplicationContoller
+class StudentsController < ApplicationController
 
   def new
     #render new form
+    @student = Student.new
   end
 
   def create
     #create new Object
     #reroute to show page
+    @student = Student.create(params.require(:student).permit(:first_name, :last_name))
+    redirect_to student_path(@student)
   end
 
   def show
     #query object by id
     #render show page with object specific info
+    @student = Student.find(params[:id])
   end
 
   def edit

@@ -1,4 +1,4 @@
-class SchoolClassesController < ApplicationContoller
+class SchoolClassesController < ApplicationController
     def show
       #query object by id
       #render show page with object specific info
