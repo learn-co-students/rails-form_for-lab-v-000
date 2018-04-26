@@ -1,17 +1,11 @@
 class SchoolClassesController < ApplicationContoller
-
-    def new
-      #render new form
-    end
-
-    def create
-      #create new Object
-      #reroute to show page
-    end
-
     def show
       #query object by id
       #render show page with object specific info
+    end
+
+    def new
+      #render new form
     end
 
     def edit
@@ -19,15 +13,16 @@ class SchoolClassesController < ApplicationContoller
       #render edit form
     end
 
+    def create
+      #create new Object
+      #reroute to show page
+    end
+
+
     def update
       #query object by id
       #update that object
       #reroute to show page
     end
 
-  private
-
-    def post_params
-      #params.require(:post).permit(:title, :description)
-    end
 end
