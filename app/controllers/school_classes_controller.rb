@@ -6,6 +6,7 @@ class SchoolClassesController < ApplicationController
     end
 
     def new
+      @school_class = SchoolClass.new
       #render new form
     end
 
@@ -17,7 +18,7 @@ class SchoolClassesController < ApplicationController
 
     def create
       #create new Object
-      @school_class = SchoolClass.new(params.require(:school_class).permit(:title, :room_number))
+      @school_class = SchoolClass.create(params.require(:school_class).permit(:title, :room_number))
       #reroute to show page
       redirect_to school_class_path(@school_class)
     end
