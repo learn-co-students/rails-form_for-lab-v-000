@@ -9,8 +9,8 @@ class StudentsController < ApplicationController
 
     def create
         @student = Student.create 
-        @student.first_name = params["student"]["first_name"]
-        @student.last_name = params["student"]["last_name"]
+        @student.first_name = params["student_first_name"]
+        @student.last_name = params["student_last_name"]
         @student.save
 
         redirect_to student_path(@student)
@@ -21,6 +21,11 @@ class StudentsController < ApplicationController
     end
 
     def edit 
+        @student = Student.find_by(params["id"])
+    end
+
+    def update
+        @student = Student.find_by(params["id"])
     end
 
 end
