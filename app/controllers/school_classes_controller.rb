@@ -19,7 +19,7 @@ class SchoolClassesController < ApplicationController
 
   def update
     @schoolclass = SchoolClass.find(params[:id])
-    @schoolclass.update(params[:title, :room_number])
+    @schoolclass.update(post_params(:title, :room_number))
     redirect_to school_class_path(@schoolclass)
   end
 
