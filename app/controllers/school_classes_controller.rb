@@ -4,8 +4,9 @@ class SchoolClassesController < ApplicationController
   end
 
   def create
-
-    redirect_to school_classes_path
+    #when you use form_tag in the view form you dont need to have the params as #[:student_classes][:title] just [:title] works.
+    @schoolclass = SchoolClass.create(title: params[:title], room_number: params[:room_number])
+    redirect_to school_class_path(@schoolclass.id)
   end
 
   def index
