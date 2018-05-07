@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   def new
-
+    
   end
 
   def create
@@ -11,14 +11,14 @@ class StudentsController < ApplicationController
   end
 
   def index
-
+    @students = Student.all
   end
 
   def show
-
+    @student = Student.find_by(params[:id])
   end
 
   def edit
-
+    @student = Student.find_by(params[:id])
   end
 end
