@@ -1,18 +1,14 @@
 class StudentsController < ApplicationController
   def new
-    
+    @student = Student.new
   end
 
   def create
-    #when you use form_tag in the view form you dont need to have the params as #[:student_classes][:title] just [:title] works.
-    #This matches the params created in the student new view
-    @student = Student.create(first_name: params[:first_name], last_name: params[:last_name])
-    redirect_to student_path(@student.id)
+    @student = Student.new(params.required(:student).permit(:first_name, :last_name))
+    @student.save
+    redirect_to student_path(@student)
   end
 
-  def index
-    @students = Student.all
-  end
 
   def show
     @student = Student.find_by(params[:id])
@@ -20,5 +16,16 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find_by(params[:id])
+  end
+
+  def update
+    @student = Student.find_by(params[:id])
+    @student.update(student_params(:first_name, :last_name))
+    redirect_to student_path(@student)
+  end
+
+  private
+  def student_params(*args)
+    params.require(:student).permit(*args)
   end
 end
