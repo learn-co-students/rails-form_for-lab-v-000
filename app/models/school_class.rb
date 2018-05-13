@@ -1,0 +1,2 @@
+class SchoolClass
+end
