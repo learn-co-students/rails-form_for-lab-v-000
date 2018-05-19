@@ -25,9 +25,9 @@ class StudentsController < ActionController::Base
     redirect_to student_path(@student)
   end
 
-  private
-    def post_params(*args)
-      params.require(:student).permit(*args)
-    end
+  # private
+  #   def post_params(*args)
+  #     params.require(:student).permit(*args)
+  #   end
 
 end
