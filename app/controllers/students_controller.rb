@@ -18,11 +18,14 @@ class StudentsController < ApplicationController
 
 	def edit
 	  @student = Student.find(params[:id])
+		# puts "Edit Student : #{@student}"
 	end
 
   def update
 	  @student = Student.find(params[:id])
-    @student.update(first_name: params[:first_name], last_name: params[:last_name])
+		# puts "Update Student : #{@student} || #{@student.id} || #{@student.first_name} || #{@student.last_name}"
+    @student.update(first_name: params["student"]["first_name"], last_name: params["student"]["last_name"])
+		# puts "Updated Student : #{@student} || #{@student.id} || #{@student.first_name} || #{@student.last_name}"
 	  redirect_to student_path(@student)
 	end
 

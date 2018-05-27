@@ -119,3 +119,79 @@ Processing by SchoolClassesController#show as HTML
   [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
   Rendered school_classes/show.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 92ms (Views: 21.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/school_classes/1" for 69.195.49.225 at 2018-05-27 22:48:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered school_classes/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 608ms (Views: 529.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/school_classes/new" for 69.195.49.225 at 2018-05-27 22:48:13 +0000
+Processing by SchoolClassesController#new as HTML
+  Rendered school_classes/new.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 106ms (Views: 104.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/school_classes" for 69.195.49.225 at 2018-05-27 22:48:22 +0000
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J11/LVPVsvHOfEwKpmkc+8uLIj1RBfB3wj80IPA2CK2JqMxs0fsSmIgC1M2p52SiH9EIuwN2jfcttRsNJIPW4g==", "school_class"=>{"title"=>"sc_2_title", "room_number"=>"2"}, "commit"=>"Create School class"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "school_classes" ("title", "room_number", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "sc_2_title"], ["room_number", 2], ["created_at", "2018-05-27 22:48:22.198522"], ["updated_at", "2018-05-27 22:48:22.198522"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.89.115:30000/school_classes/2
+Completed 302 Found in 11ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/school_classes/2" for 69.195.49.225 at 2018-05-27 22:48:22 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/2/edit" for 69.195.49.225 at 2018-05-27 22:48:27 +0000
+Processing by SchoolClassesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered school_classes/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/school_classes/2" for 69.195.49.225 at 2018-05-27 22:48:37 +0000
+Processing by SchoolClassesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yBWhJD5D2fUWxu67TxsItqPTAjNPnpG89Z8nuqFNnXRm4BJlvG15nFC4dnxAlXDvd4kotR3t7DwaFQiXdfhDOw==", "school_class"=>{"title"=>"sc_2_title_update", "room_number"=>"2"}, "commit"=>"Update School class", "id"=>"2"}
+  [1m[35mSchoolClass Load (0.2ms)[0m  SELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  UPDATE "school_classes" SET "title" = ?, "updated_at" = ? WHERE "school_classes"."id" = ?  [["title", "sc_2_title_update"], ["updated_at", "2018-05-27 22:48:37.292633"], ["id", 2]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://159.203.89.115:30000/students/2
+Completed 302 Found in 12ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/students/2" for 69.195.49.225 at 2018-05-27 22:48:37 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 2]]
+Completed 404 Not Found in 10ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=2):
+  app/controllers/students_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+
+
+Started GET "/school_classes/2" for 69.195.49.225 at 2018-05-27 22:49:09 +0000
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered school_classes/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 30ms (Views: 17.8ms | ActiveRecord: 1.3ms)

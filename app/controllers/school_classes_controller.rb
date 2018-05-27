@@ -21,13 +21,16 @@ class SchoolClassesController < ApplicationController
 
 	def edit
 	  @school_class = SchoolClass.find(params[:id])
+		# puts "Edit SchoolClass : #{@school_class}"
 	end
 
   def update
 	  @school_class = SchoolClass.find(params[:id])
-    @school_class.update(title: params[:title], room_number: params[:room_number])
+		# puts "Update SchoolClass : #{@school_class} || #{@school_class.id} || #{@school_class.title} || #{@school_class.room_number}"
+    @school_class.update(title: params["school_class"]["title"], room_number: params["school_class"]["room_number"])
+		# puts "Updated SchoolClass : #{@school_class} || #{@school_class.id} || #{@school_class.title} || #{@school_class.room_number}"
 
-	  redirect_to student_path(@school_class)
+	  redirect_to school_class_path(@school_class)
 	end
 
 
