@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
   resources :students
-  
+
   get   '/schoolclasses',         to: 'school_classes#index', as: 'school_classes'
-  post  '/schoolclasses',         to: 'school_classes#create'
+
   get   '/schoolclasses/new',     to: 'school_classes#new',   as: 'new_school_class'
-  get   '/scoolclasses/:id/edit', to: 'school_classes#edit', as: 'edit_school_class'
+
+  post  '/schoolclasses',         to: 'school_classes#create'
+
   get   '/schoolclasses/:id',     to: 'school_classes#show', as: 'school_class'
+
+  get   '/scoolclasses/:id/edit', to: 'school_classes#edit', as: 'edit_school_class'
+
   patch '/schoolclasses/:id',     to: 'school_classes#update'
-  put   '/schoolclasses/:id',     to: 'school_classes#update'
-  delete '/schoolclasses/:id',    to: 'school_classes#delete'
 
-  # resource :school_classes, only: [:index,:update,:show,:create]
-  # post  'schoolclasses', to:  'school_classes#create', as: 'school_class'
-  # get   'schoolclasses', to:  'school_classes#new', as: 'new_school_class'
-  #
+  #  put   '/schoolclasses/:id',     to: 'school_classes#update
+  #  delete '/schoolclasses/:id',    to: 'school_classes#delete'
 
-
-  # resources :schoolclasses
+#----------------------------------------------------------------------------#
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
