@@ -3,16 +3,17 @@ require 'concerns/set_record.rb'
 extend LocateRecord
 
   def create
-    @student = Student.create(params[:student])
+    @student ||= Student.create(params[:student])
     if @student.persisted?
       redirect_to @student
     else
-      render 'new'
+      render '_new'
     end
   end
 
   def new
-    @student = Student.new
+    @student ||= Student.new
+    render "_form"
   end
 
   def show
@@ -21,6 +22,7 @@ extend LocateRecord
 
   def edit
     set_student
+    render "_form"
   end
 
   def update
@@ -33,10 +35,10 @@ extend LocateRecord
 
   end
 
-private
+  private
 
   def set_student
-    @student = LocateRecord.find_by_id(params)
+    @student ||= LocateRecord.find_by_id(params)
   end
 
   def user_params(*args)
