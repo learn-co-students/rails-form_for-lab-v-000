@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+require 'concerns/set_record.rb'
+extend LocateRecord
 
   def create
     @student = Student.create(params[:student])
@@ -14,16 +16,16 @@ class StudentsController < ApplicationController
   end
 
   def show
-    find_user
+    set_student
   end
 
   def edit
-    find_user
+    set_student
   end
 
   def update
-    find_user
-     if @student.update(user_params)
+    set_student
+     if @student.update(user_params(:first_name, :last_name))
        redirect_to @student
      else
        render 'edit'
@@ -31,16 +33,14 @@ class StudentsController < ApplicationController
 
   end
 
+private
 
-
-  private
-
-  def find_user
-    @student = Student.find_by(params[:id])
+  def set_student
+    @student = LocateRecord.find_by_id(params)
   end
 
-  def user_params
-    params.require(:student).permit(:first_name,:last_name)
+  def user_params(*args)
+    params.require(:student).permit(args)
   end
 
 end
