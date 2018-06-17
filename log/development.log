@@ -164,3 +164,38 @@ Started GET "/students/new" for 127.0.0.1 at 2018-06-16 21:39:32 -0400
 Processing by StudentsController#new as HTML
   Rendered students/new.html.erb within layouts/application (43.6ms)
 Completed 200 OK in 384ms (Views: 360.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2018-06-16 22:04:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StudentsController#new as HTML
+  Rendered students/_new_or_edit_form.html.erb (27.0ms)
+  Rendered students/new.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 359ms (Views: 340.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2018-06-16 22:04:54 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PYBa7jcrSJeWA0HKG+yqt9Wbh5+Sl/mJyKAtXLU86LUl7FUMtwkK03Me9qZ5DLTUnSswUPtUuKUPcOK6O6b96A==", "student"=>{"first_name"=>"banana", "last_name"=>"frisky"}, "commit"=>"Create Student"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (17.5ms)[0m  [1mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "banana"], ["last_name", "frisky"], ["created_at", "2018-06-17 02:04:54.438514"], ["updated_at", "2018-06-17 02:04:54.438514"]]
+  [1m[35m (85.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/students/3
+Completed 302 Found in 108ms (ActiveRecord: 103.4ms)
+
+
+Started GET "/students/3" for 127.0.0.1 at 2018-06-16 22:04:54 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.4ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered students/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 48ms (Views: 33.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students/3/edit" for 127.0.0.1 at 2018-06-16 22:04:58 -0400
+Processing by StudentsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mStudent Load (0.3ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered students/_new_or_edit_form.html.erb (2.1ms)
+  Rendered students/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.3ms)
