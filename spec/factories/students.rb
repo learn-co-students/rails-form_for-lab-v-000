@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :student do
-    first_name "Daenerys"
-    last_name "Targaryen"
+    first_name "MyString"
+    last_name "MyString"
   end
 end
