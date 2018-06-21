@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  Rails.application.routes.draw do
+  resources :students, except: [:destroy, :index]
+  resources :school_classes, except: [:destroy, :index]
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
+  # get '/students', to: 'students#index', as: :students
+  # get '/student_classes', to: 'student_classes#index', as: :student_classes
+  #resources :students
+  #resources :school_classes
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
