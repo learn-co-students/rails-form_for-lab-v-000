@@ -55,4 +55,5 @@ Rails.application.routes.draw do
   #   end
   resources :students
   resources :school_classes
+
 end
