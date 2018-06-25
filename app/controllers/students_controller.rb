@@ -1,6 +1,10 @@
 class StudentsController < ApplicationController
 
   def new
+    @student = Student.new
+  end
+
+  def index
   end
 
   def create
@@ -13,6 +17,10 @@ class StudentsController < ApplicationController
   end
 
   def edit
+    @student = Student.find_by(id: params[:id])
+  end
+
+  def update
     @student = Student.find_by(id: params[:id])
     @student.update(student_params)
     redirect_to student_path(@student)
