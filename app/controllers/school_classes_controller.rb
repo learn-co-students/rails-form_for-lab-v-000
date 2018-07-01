@@ -1,10 +1,16 @@
 class SchoolClassesController < ApplicationController
-  def new
+  def show 
+    @school_class = SchoolClass.find(params[:id])
   end
 
+  def new
+    @school_class = SchoolClass.new
+  end 
+
   def create
-    @student_class = SchoolClass.new(school_classes_params(:title, :room_number))
-    @student_class.save
+    @school_class = SchoolClass.new(school_classes_params(:title, :room_number))
+    @school_class.save
+    redirect_to school_class_path(@school_class)
   end
 
   private
