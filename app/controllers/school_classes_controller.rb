@@ -2,27 +2,28 @@ require "pry"
 class SchoolClassesController < ApplicationController
 
     def index
-        binding.pry
     end
 
     def new
-        binding.pry
+        @school_class = SchoolClass.new
     end
-
     def create
-        binding.pry
+        @school_class = SchoolClass.create(params[:school_class])
+        redirect_to school_class_path(@school_class)
     end
 
     def show
-        binding.pry
+        @school_class = SchoolClass.find(params[:id])
     end
 
     def edit
-        binding.pry
+        @school_class = SchoolClass.find(params[:id])
     end
 
     def update
-        binding.pry
+        @school_class = SchoolClass.find(params[:id])
+        @school_class.update(params[:school_class])
+        redirect_to school_class_path(@school_class)
     end
 
 end

@@ -1,26 +1,28 @@
 require "pry"
 class StudentsController < ApplicationController
     def index
-        binding.pry
     end
 
     def new
-        binding.pry
+        @student = Student.new
     end
 
     def create
-        binding.pry
+        @student = Student.create(params[:student])
+        redirect_to student_path(@student)
     end
 
     def show
-        binding.pry
+        @student = Student.find(params[:id])
     end
 
     def edit
-        binding.pry
+        @student = Student.find(params[:id])
     end
 
     def update
-        binding.pry
+       @student = Student.find(params[:id])
+        @student.update(params[:student])
+        redirect_to student_path(@student)
     end
 end
