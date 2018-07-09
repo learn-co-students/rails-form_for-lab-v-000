@@ -53,6 +53,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :schools
+  resources :school_classes
   resources :students
 end
