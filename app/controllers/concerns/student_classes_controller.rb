@@ -1,0 +1,2 @@
+class StudentClasses_Controller < ApplicationController
+end
