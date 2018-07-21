@@ -1,34 +1,31 @@
-class StudentsController < ApplicationController
 
-  def to_s
-    self.first_name + ' ' + self.last_name
-  end
+class SchoolClassesController < ApplicationController
 
   def index
-    @students = Student.all
+    @school_classes = SchoolClass.all
   end
 
   def show
-    @student = Student.find(params[:id])
+    @school_class = SchoolClass.find(params[:id])
   end
 
   def new
-    @student = Student.new
+    @school_class = SchoolClass.new
   end
 
   def edit
-    @student = Student.find(params[:id])
+    @school_class = SchoolClass.find(params[:id])
   end
 
   def create
-    student = Student.create(:first_name => params[:student][:first_name], :last_name => params[:student][:last_name])
-    redirect_to student_path(student)
+    school_class = SchoolClass.create(:title => params[:school_class][:title], :room_number => params[:school_class][:room_number])
+    redirect_to school_class_path(school_class)
   end
 
   def update
-    @student = Student.find(params[:id])
-	  @student.update(params[:student])
-	  redirect_to students_path
+    @school_class = SchoolClass.find(params[:id])
+	  @school_class.update(params[:school_class])
+	  redirect_to school_classes_path
   end
 
 end
