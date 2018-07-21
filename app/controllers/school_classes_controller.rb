@@ -1,4 +1,3 @@
-
 class StudentsController < ApplicationController
 
   def to_s
