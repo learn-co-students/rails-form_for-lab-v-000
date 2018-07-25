@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180725212044) do
 
   create_table "school_classes", force: :cascade do |t|
@@ -26,5 +27,8 @@ ActiveRecord::Schema.define(version: 20180725212044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 0) do
+>>>>>>> 9e8804076a29165052036a87656dfef1f42211f9
 
 end
