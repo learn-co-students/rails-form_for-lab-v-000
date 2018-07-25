@@ -1,41 +1,36 @@
 class SchoolClassesController < ApplicationController
 	def index
-		@posts = Post.all
+		@school_classes = SchoolClass.all
 	end
 
 	def show
-		@post = Post.find(params[:id])
+		@school_class = SchoolClass.find(params[:id])
 	end
 
 	def new
-		@post = Post.new
+		@school_class = SchoolClass.new
 	end
 
 def create
-  @post = Post.new(post_params(:title, :description))
-  @post.save
-  redirect_to post_path(@post)
+  @school_class = SchoolClass.new(post_params(:title, :description))
+  @school_class.save
+  redirect_to school_classes_path(@school_classes)
 end
  
 def update
-  @post = Post.find(params[:id])
-  @post.update(post_params(:title))
-  redirect_to post_path(@post)
+  @school_class = SchoolClass.find(params[:id])
+  @school_class.update(post_params(:title))
+  redirect_to school_class_path(@school_class)
 end
 
 	def edit
-	  @post = Post.find(params[:id])
+	  @school_class = SchoolClass.find(params[:id])
 	end
  
 private
- 
-   
-  # We pass the permitted fields in as *args;
-  # this keeps `post_params` pretty dry while
-  # still allowing slightly different behavior
-  # depending on the controller action
+
   def post_params(*args)
-    params.require(:post).permit(*args)
+    params.require(:school_class).permit(*args)
   end
   
 
