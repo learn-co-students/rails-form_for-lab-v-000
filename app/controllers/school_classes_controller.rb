@@ -8,13 +8,13 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def new
-		@school_class = SchoolClass.new
+		@school_class = SchoolClass.new(post_params(:title, :room_number))
 	end
 
 def create
-  @school_class = SchoolClass.new(post_params(:title, :description))
+  @school_class = new
   @school_class.save
-  redirect_to school_classes_path(@school_classes)
+  redirect_to school_classes_path(@school_class)
 end
  
 def update
@@ -37,21 +37,6 @@ private
 end
 
 
-
-  describe "POST create" do
-    context "with valid attributes" do
-      it "creates a new school_class" do
-        expect{
-          post :create, { :school_class => { :title => "Computer Science", :room_number => 5 } }
-        }.to change(SchoolClass,:count).by(1)
-      end
-      
-      it "redirects to the new school_class" do
-        post :create, { :school_class => { :title => "Computer Science", :room_number => 5 } }
-        expect(response).to redirect_to SchoolClass.last
-      end
-    end
-  end
 
 
 

@@ -8,11 +8,11 @@ class StudentsController < ApplicationController
 	end
 
 	def new
-		@student = Student.new
+		@student = Student.new(post_params(:first_name, :last_name))
 	end
 
 def create
-  @student = Student.new(post_params(:first_name, :last_name))
+  @student = new
   @student.save
   redirect_to student_path(@student)
 end
