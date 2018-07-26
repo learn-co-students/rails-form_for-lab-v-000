@@ -30,7 +30,7 @@ private
  
   
   def post_params(*args)
-    params.require(:student).permit(*args)
+    params.require(:student).permit(:first_name, :last_name)
 
   end
 
