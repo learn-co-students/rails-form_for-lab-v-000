@@ -1,3 +1,4 @@
+
 class CreateSchoolClasses < ActiveRecord::Migration
   def change
     create_table :school_classes do |t|
@@ -8,4 +9,3 @@ class CreateSchoolClasses < ActiveRecord::Migration
     end
   end
 end
-
