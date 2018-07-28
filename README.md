@@ -1,5 +1,10 @@
 # `form_for` Lab
+.....
 
+ <!-- When generating anything... you add
+  rails generate scaffold User new  --no-test-framework -->
+
+....
 ## Objectives
 
 1. Use `form_for` to build a `new` form
