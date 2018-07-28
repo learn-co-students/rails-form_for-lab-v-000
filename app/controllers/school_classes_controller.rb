@@ -11,17 +11,14 @@ class SchoolClassesController < ApplicationController
     @school_class.save
     redirect_to school_class_path(@school_class.id)  
      # redirects to the new student A.K.A the new method
-
   end
 
   def show
     @school_class = SchoolClass.find(params[:id])
-
   end
 
   def edit
     @school_class = SchoolClass.find(params[:id])
-
   end
 
   def update
