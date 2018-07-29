@@ -1,6 +1,7 @@
 class SchoolClassesController < ApplicationController
 
   def new
+    @school_class = SchoolClass.new
   end
 
   def create
@@ -10,12 +11,17 @@ class SchoolClassesController < ApplicationController
   end
 
   def show
+    find_class
   end
 
   def edit
+    find_class
   end
 
   def update
+    find_class
+    find_class.update(post_params(:title, :room_number))
+    redirect_to school_class_path
   end
 
 # PRIVATE HELPERS
@@ -23,6 +29,10 @@ class SchoolClassesController < ApplicationController
 
   def post_params(*args)
     params.require(:school_class).permit(*args)
+  end
+
+  def find_class
+    @school_class = SchoolClass.find(params[:id])
   end
 
 end
