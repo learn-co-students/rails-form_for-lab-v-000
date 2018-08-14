@@ -15,7 +15,13 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Student.new
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update(post_params(:first_name, :last_name))
+    redirect_to student_path(@student)
   end
 
   private
