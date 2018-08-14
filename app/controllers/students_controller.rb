@@ -4,6 +4,12 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  def create
+    @student = Student.new(post_params(:first_name, :last_name))
+    @student.save
+    redirect_to student_path(@student)
+  end
+
   private
  
   def post_params(*args)
