@@ -2,7 +2,7 @@
 class CreateSchoolClasses < ActiveRecord::Migration
   
   def change
-    create_table :schoolclasses do |column|
+    create_table :school_classes do |column|
       column.string :title
       column.integer :room_number
 

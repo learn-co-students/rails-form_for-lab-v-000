@@ -1,11 +1,7 @@
 
 class SchoolClassesController < ApplicationController
-  before_action :find_schoolclass, only: [:show, :update, :edit]
-  
-  def index
-    @schoolclass = SchoolClass.all
-  end
-  
+  before_action :find_school_class, only: [:show, :update, :edit]
+
   def show
   end
   
@@ -14,13 +10,13 @@ class SchoolClassesController < ApplicationController
   end
   
   def create
-    @schoolclass = SchoolClass.new(schoolclass_params(:school_class_title, :school_class_room_number))
+    @schoolclass = SchoolClass.new(school_class_params(:title, :room_number))
     @schoolclass.save
     redirect_to schoolclass_path(@schoolclass)
   end
   
   def update
-    @schoolclass.update(schoolclass_params(:school_class_title, :school_class_room_number))
+    @schoolclass.update(school_class_params(:title, :room_number))
     redirect_to schoolclass_path(@schoolclass)
   end
   
@@ -29,12 +25,12 @@ class SchoolClassesController < ApplicationController
   
   private
   
-    def find_schoolclass
+    def find_school_class
       @schoolclass = SchoolClass.find(params[:id])
     end
   
-    def schoolclass_params(*args)
-      params.require(:schoolclass).permit(*args)
+    def school_class_params(*args)
+      params.require(:school_class).permit(*args)
     end
 
 end
