@@ -14,13 +14,13 @@ class SchoolClassesController < ApplicationController
   end
   
   def create
-    @schoolclass = SchoolClass.new(schoolclass_params())
+    @schoolclass = SchoolClass.new(schoolclass_params(:school_class_title, :school_class_room_number))
     @schoolclass.save
     redirect_to schoolclass_path(@schoolclass)
   end
   
   def update
-    @schoolclass.update(schoolclass_params())
+    @schoolclass.update(schoolclass_params(:school_class_title, :school_class_room_number))
     redirect_to schoolclass_path(@schoolclass)
   end
   
