@@ -12,12 +12,12 @@ class SchoolClassesController < ApplicationController
   def create
     @schoolclass = SchoolClass.new(school_class_params(:title, :room_number))
     @schoolclass.save
-    redirect_to schoolclass_path(@schoolclass)
+    redirect_to school_class_path(@schoolclass)
   end
   
   def update
     @schoolclass.update(school_class_params(:title, :room_number))
-    redirect_to schoolclass_path(@schoolclass)
+    redirect_to school_class_path(@schoolclass)
   end
   
   def edit
