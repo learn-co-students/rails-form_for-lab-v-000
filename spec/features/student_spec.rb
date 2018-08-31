@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'pry'
 
 describe 'form page' do
   it 'form renders with the new action' do
@@ -22,7 +22,7 @@ describe 'form page' do
     @edit_student = Student.create(first_name: "Daenerys", last_name: "Targaryen")
 
     visit edit_student_path(@edit_student)
-
+    
     fill_in 'student_first_name', with: "Lindsey"
     fill_in 'student_last_name', with: "Stirling"
 
