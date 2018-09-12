@@ -4,6 +4,9 @@ class StudentClassesController < ApplicationController
   end
 
   def create
+    @school_class = SchoolClass.create(params.require(:school_class).permit(:title,:room_number)
+
+
   end
 
   def show
