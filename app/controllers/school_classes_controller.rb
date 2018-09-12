@@ -1,12 +1,11 @@
-class StudentClassesController < ApplicationController
+class SchoolClassesController < ApplicationController
 
   def new
   end
 
   def create
-    @school_class = SchoolClass.create(params.require(:school_class).permit(:title,:room_number)
-
-
+    @school_class = SchoolClass.new(params.require(:school_class))
+    @school_class.save
   end
 
   def show
