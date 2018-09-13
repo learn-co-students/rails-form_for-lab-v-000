@@ -8,7 +8,8 @@ class StudentsController < ApplicationController
     @student.first_name = params[:student][:first_name]
     @student.last_name = params[:student][:last_name]
     @student.save
-    redirect_to student_path(@student)  
+    redirect_to student_path(@student) 
+    @student here redirect to the show method becasue it has an "id" 
   end
   
 
