@@ -1,0 +1,1 @@
+class SchoolClasses < Appl
