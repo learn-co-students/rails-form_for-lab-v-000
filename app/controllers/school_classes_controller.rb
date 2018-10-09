@@ -1,24 +1,28 @@
 class SchoolClassesController < ApplicationController
 
+  def show
+    @school_class = SchoolClass.find(params[:id])
+  end
+
   def new
+    @school_class = SchoolClass.new
   end
 
   def create
-    @schoolclass = SchoolClass.new(params.require(:schoolclass).permit(:title, :room_number))
-    @schoolclass.save
-    redirect_to post_school_class(@schoolclass)
-  end
-
-  def show
+    params.inspect
+    @school_class = SchoolClass.new(params.require(:school_class).permit(:title, :room_number))
+    @school_class.save
+    redirect_to school_class_path(@school_class)
   end
 
   def edit
+    @school_class = SchoolClass.find(params[:id])
   end
 
   def update
-    @schoolclass = SchoolClass.find(params[:id])
-    @schoolclass = SchoolClass.update(params.require(:schoolclass).permit(:title, :room_number))
-    redirect_to post_school_class(@schoolclass)
+    @school_class = SchoolClass.find(params[:id])
+    @school_class = SchoolClass.update(params.require(:school_class).permit(:title, :room_number))
+    redirect_to school_class_path(@school_class)
   end
 
 end
