@@ -11,7 +11,7 @@
 ## Instructions
 
 For this lab you will be extending the functionality of the Flatiron school's student management application by building in the functionality to create and edit school classes. You will build all of the functionality from scratch, including building out the models, views, and controllers for the `SchoolClass` and `Student` resources.
-
+                
 Below is what will be needed for each component of the MVC structure:
 
 * **Models** - Create a `SchoolClass` model, along with its associated database table. The `SchoolClass` table should have the columns: `title:string` and `room_number:integer`. The `Student` model and database table have already been created for you.
