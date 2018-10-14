@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
 
 
-resources :students, only: [:index, :show, :edit, :update, :new, :create]
+resources :students, only: [:show, :edit, :update, :new, :create]
 
-resources :school_classes, only: [:index, :show, :edit, :update, :new, :create]
+resources :school_classes, only: [:show, :edit, :update, :new, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
