@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+
+
+resources :students, only: [:show, :edit, :update, :new, :create]
+
+resources :school_classes, only: [:show, :edit, :update, :new, :create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
