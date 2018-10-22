@@ -16,6 +16,7 @@ class SchoolClassesController < ApplicationController
     end
 
     def update
+        # Watch for syntactical errors...
         @school_class = SchoolClass.find(params[:id])
         @school_class.update(params.require(:school_class))
         @school_class.save
