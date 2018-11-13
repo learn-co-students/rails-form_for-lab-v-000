@@ -7,4 +7,15 @@ class SchoolClassesController < ApplicationController
     @school_class = SchoolClasses.find(params[:id])
   end
 
+  def new
+    @school_class = SchoolClasses.new
+  end
+
+  def create
+
+  end
+
+  def edit
+  end
+
 end
