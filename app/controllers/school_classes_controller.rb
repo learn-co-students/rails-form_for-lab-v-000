@@ -1,34 +1,29 @@
-class SchoolClassesController < ActionController::Base
-
-def index
-  @schoolclass = SchoolClass.all
-end
-
-def show
-  @schoolclass = SchoolClass.find(params[:id])
-end
-
+class SchoolClassesController < ApplicationController
 
 def new
-  @schoolclass = SchoolClass.new(params[:title, :room_number])
+  @school_class = SchoolClass.new
 end
 
 def create
-  @schoolclass = StudentClass.new(post_params(:title, :room_number))
-  @schoolclass.save
-  redirect_to_studentclass_path(@studentclass)
+  @school_class = SchoolClass.create(school_class_params(:title, :room_number))
+  @school_class.save
+  redirect_to school_class_path(@school_class)
+end
+
+def show
+  @school_class = SchoolClass.find(params[:id])
 end
 
 
 def edit
-  @schoolclass = SchoolClass.find(params[:id])
+  @school_class = SchoolClass.find(params[:id])
 end
 
 
 private
 
-def studentclass_params(*args)
-  params.require(:studentclass).permit(*args)
+def school_class_params(*args)
+  params.require(:school_class).permit(*args)
 end
 
 end
