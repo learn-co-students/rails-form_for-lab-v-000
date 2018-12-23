@@ -1,5 +1,5 @@
 class SchoolClassesController < ApplicationController
-  before_action :set_school_class, only: [:show, :edit, :update, :destroy]
+  # before_action :set_school_class, only: [:show, :edit, :update, :destroy]
 
   # GET /school_classes
   # GET /school_classes.json
