@@ -24,17 +24,19 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
-
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'School class was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
+    # byebug
+    @student = Student.create(student_params)
+    redirect_to student_path(@student)
+    # respond_to do |format|
+    #   if @student.save
+    #     redirect_to student_path(@student)
+        # format.html { redirect_to @student}#, notice: 'Student was successfully created.' }
+        # format.json { render :show, status: :created, location: @student }
+      # else
+      #   format.html { render :new }
+      #   format.json { render json: @student.errors, status: :unprocessable_entity }
+      # end
+    # end
   end
 
   # PATCH/PUT /students/1
@@ -42,7 +44,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'School class was successfully updated.' }
+        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'School class was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class StudentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def student_params
-    params.require(:student).permit(:title, :room_number)
+    params.require(:student).permit(:first_name, :last_name)
   end
 end
