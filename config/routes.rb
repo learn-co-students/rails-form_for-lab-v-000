@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'students/_form'
+
   get 'students/new'
 
   get 'students/edit'
