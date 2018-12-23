@@ -24,19 +24,8 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    # byebug
     @student = Student.create(student_params)
     redirect_to student_path(@student)
-    # respond_to do |format|
-    #   if @student.save
-    #     redirect_to student_path(@student)
-        # format.html { redirect_to @student}#, notice: 'Student was successfully created.' }
-        # format.json { render :show, status: :created, location: @student }
-      # else
-      #   format.html { render :new }
-      #   format.json { render json: @student.errors, status: :unprocessable_entity }
-      # end
-    # end
   end
 
   # PATCH/PUT /students/1
