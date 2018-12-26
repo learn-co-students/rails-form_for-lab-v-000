@@ -1,7 +1,7 @@
-class StudentController < ApplicationController
+class StudentsController < ApplicationController
 
     def index
-		@students=Student.all
+		@students = Student.all
 	end
 
 	def show
@@ -13,15 +13,15 @@ class StudentController < ApplicationController
 	end
 
 	def create
-		@student = Student.new(post_params(:first_name, :last_name))
+		@student = Student.new(post_params)
 		@student.save
-		redirect_to post_path(@post)
+		redirect_to student_path(@student)
 	end
 	 
 	def update
 		@student = Student.find(params[:id])
-		@student.update(post_params(:first_name, :last_name))
-		redirect_to post_path(@student)
+		@student.update(post_params)
+		redirect_to student_path(@student)
 	end
 
 	def edit
@@ -31,7 +31,7 @@ class StudentController < ApplicationController
 	private
 	
 	def post_params(*args)
-		params.require(:post).permit(*args)
+		params.require(:student).permit(:first_name, :last_name)
     end
     
 end
