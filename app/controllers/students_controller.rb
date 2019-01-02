@@ -14,16 +14,15 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
-  def created
-    @student = Student.find(params[:id])
+  def create
+    @student = Student.new(student_params(:first_name, :last_name))
     @student.save
     redirect_to student_path(@student)
   end
 
   def update
-    @student = Student.find(params[:id])   #  "Adding Post Params Method"
-    @student.update(student_params(:first_name, :last_name))  #  Only passing in title for update, no change in description
-    redirect_to student_path(@student)
+    @student = Student.find(params[:id])
+    @student.update(student_params(:first_name, :last_name))
   end
 
   def edit
@@ -34,5 +33,5 @@ end
 private
 
   def student_params(*args)
-    params.require(:post).permit(*args)  # *args instead of (:title, :description)
+    params.require(:student).permit(*args)
   end
