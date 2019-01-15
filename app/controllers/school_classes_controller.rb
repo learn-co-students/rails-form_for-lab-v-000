@@ -3,7 +3,6 @@ require 'pry'
 class SchoolClassesController < ApplicationController
 
   def index
-    # binding.pry
   end
 
   def show
@@ -15,6 +14,10 @@ class SchoolClassesController < ApplicationController
     @school_class = SchoolClass.new
   end
 
+  def edit
+    @school_class = SchoolClass.find_by_id(params[:id])
+  end
+
   def create
 	  @school_class = SchoolClass.new(school_class_params(:title, :room_number))
     @school_class.save
@@ -23,9 +26,9 @@ class SchoolClassesController < ApplicationController
 
 
 	def update
-	  @post = Post.find(params[:id])
-	  @post.update(post_params(:title))
-	  redirect_to post_path(@post)
+	  @school_class = SchoolClass.find(params[:id])
+	  @school_class.update(school_class_params(:title, :room_number))
+	  redirect_to school_class_path(@school_class)
 	end
 
 
