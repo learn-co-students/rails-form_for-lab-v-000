@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :students, only: %i[index show new create]
+  resources :students, only: %i[index show new create update]
 
-  resources :school_classes, only: %i[index show new create]
+  resources :school_classes, only: %i[index show new create update]
   #
   # get 'schoolclass/:id/edit', to: 'articles#edit', as: :edit_article
   #
