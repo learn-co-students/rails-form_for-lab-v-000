@@ -1,5 +1,4 @@
 class SchoolClassesController < ApplicationController
-
   def show
     @school_class = SchoolClass.find(params[:id])
   end
@@ -19,9 +18,8 @@ class SchoolClassesController < ApplicationController
   end
 
   def update
-    @student_class = SchoolClass.find(params[:id])
-    @student.update(params.require(:student))
-    redirect_to student_path(@student)
+    @school_class = SchoolClass.find(params[:id])
+    @school_class.update(params.require(:school_class))
+    redirect_to school_class_path(@school_class)
   end
-
 end
