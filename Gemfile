@@ -31,3 +31,5 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
+
+gem 'bundler', '~> 1.16', '>= 1.16.1'
