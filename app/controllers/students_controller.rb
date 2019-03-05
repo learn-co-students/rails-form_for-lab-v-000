@@ -1,3 +1,5 @@
+require 'pry'
+
 class StudentsController < ApplicationController
 
   def index
