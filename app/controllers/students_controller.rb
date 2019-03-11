@@ -1,4 +1,4 @@
-class StudentsController < ActiveRecord::Base
+class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
   end
