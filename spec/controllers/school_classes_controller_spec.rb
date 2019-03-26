@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe SchoolClassesController do
 
   describe "POST create" do
