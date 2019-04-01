@@ -1,23 +1,30 @@
 class StudentsController < ApplicationController 
     def new 
+      @student = Student.new
     end
   
     def create 
-        @student = Student.create(post_params)
+        @student = Student.create(student_params)
         @student.save 
         redirect_to student_path(@student)
     end
   
     def show 
+      @student = Student.find(params[:id])
     end
   
     def edit 
+      @student = Student.find(params[:id])
     end
     
     def update 
+      binding.pry
+      @student = Student.update(student_params)
+      redirect_to student_path(@student)
     end
     private
-  def post_params 
+  def student_params 
     params.require(:student).permit(:first_name, :last_name)
   end
+
 end
