@@ -3,7 +3,9 @@ class SchoolClassesController < ApplicationController
   end
 
   def create 
-    binding.pry
+    @school_class = SchoolClass.create(post_params)
+    @school_class.save 
+    redirect_to school_class_path(@school_class)
   end
 
   def show 
@@ -13,5 +15,9 @@ class SchoolClassesController < ApplicationController
   end
   
   def update 
+  end
+private
+  def post_params 
+    params.require(:school_class).permit(:room_number, :title)
   end
 end
