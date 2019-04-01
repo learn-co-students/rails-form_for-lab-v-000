@@ -18,7 +18,6 @@ class StudentsController < ApplicationController
     end
     
     def update 
-      binding.pry
       @student = Student.update(student_params)
       redirect_to student_path(@student)
     end
