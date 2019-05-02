@@ -30,10 +30,6 @@ class SchoolClassesController < ApplicationController
 	private
 
 
-	# We pass the permitted fields in as *args;
-	# this keeps `school_params` pretty dry while
-	# still allowing slightly different behavior
-	# depending on the controller action
 	def school_class_params
 	  params.require(:school_class).permit!
 	end
