@@ -16,14 +16,14 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def create
-	  @school_class = SchoolClass.new(school_params(:title, :room_number))
+	  @school_class = SchoolClass.new(school_class_params)
 	  @school_class.save
 	  redirect_to school_class_path(@school_class)
 	end
 
 	def update
 	  @school_class = SchoolClass.find(params[:id])
-	  @school_class.update(school_params(:title, :room_number))
+	  @school_class.update(school_class_params)
 	  redirect_to school_class_path(@school_class)
 	end
 
@@ -34,7 +34,7 @@ class SchoolClassesController < ApplicationController
 	# this keeps `school_params` pretty dry while
 	# still allowing slightly different behavior
 	# depending on the controller action
-	def school_params(*args)
-	  params.require(:school_class).permit(*args)
+	def school_class_params
+	  params.require(:school_class).permit!
 	end
 end
