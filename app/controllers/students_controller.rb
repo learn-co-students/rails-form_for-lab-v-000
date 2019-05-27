@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
     end
 
     def redirect_here(instance)
-        redirect_to students_path(instance)
+        redirect_to student_path(instance)
     end
 
     def find_me(id)
