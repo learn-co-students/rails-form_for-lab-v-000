@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(strong_params(:first_name, :last_name))
-        @student 
+        @student.save
         redirect_here(@student)
     end
 
