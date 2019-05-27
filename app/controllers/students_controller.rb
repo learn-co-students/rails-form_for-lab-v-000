@@ -1,4 +1,4 @@
-class StundentController < ApplicationController
+class StudentsController < ApplicationController
     def index 
         @students = Student.all
     end 
@@ -12,14 +12,14 @@ class StundentController < ApplicationController
     end
 
     def create 
-        @student = Student.new(strong_params(:title, :room_number))
+        @student = Student.new(strong_params(:first_name, :last_name))
         @student 
         redirect_here(@student)
     end
 
     def update 
         @student = Student.find(params[:id])
-        @student :room_number))
+        @student.update(strong_params(:first_name, :last_name))
         redirect_here(@student)
     end
 
