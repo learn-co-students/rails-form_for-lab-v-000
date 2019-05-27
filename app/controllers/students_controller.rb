@@ -30,7 +30,7 @@ class StudentsController < ApplicationController
     private 
     
     def strong_params(*args)
-        params.require(:school_class).permit(*args)
+        params.require(:student).permit(*args)
     end
 
     def redirect_here(instance)
