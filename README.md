@@ -5,7 +5,7 @@
 1. Use `form_for` to build a `new` form
 2. Use `form_for` to build an `edit` form
 3. Mass assign form data to `ActiveRecord` instances on `new` and `edit`
-4. Build RESTFul actions for `new`, `create`, `edit`, and `update`, with the correct routes and route helper urls.
+4. Build RESTFul actions for `new`, `create`, `edit`, and `update`, with the correct routes and route helper URLs.
 
 
 ## Instructions
