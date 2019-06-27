@@ -4,7 +4,7 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def show
-		@school_classes = SchoolClass.find(params[:id])
+		@school_class = SchoolClass.find(params[:id])
 	end
 
 	def new
@@ -12,6 +12,7 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 	  @school_class = SchoolClass.new
 	  @school_class.title = params[:title]
 	  @school_class.room_number = params[:room_number]
