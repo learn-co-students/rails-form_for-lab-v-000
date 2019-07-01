@@ -6,10 +6,12 @@ class StudentsController < ApplicationController
 
 	def new
 		@student = Student.new
+		
 	end
 
 	def create
 	  @student = Student.new(student_params(:first_name,:last_name))
+	  #form_for is best for dynamic crud forms
 	  @student.save
 	  redirect_to student_path(@student)
 	end
