@@ -28,8 +28,10 @@ class StudentsController < ApplicationController
     end
 
     private 
-    def student_params(*args)
-        params.require(:student).permit(*args)
+    def student_params
+        # params.require(:student).permit(*args)
+        params.require(:student).permit(:first_name, :last_name)
+
     end
 
 end
