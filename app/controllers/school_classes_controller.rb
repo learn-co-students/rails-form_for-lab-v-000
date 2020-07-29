@@ -1,3 +1,4 @@
+require 'pry'
 class SchoolClassesController < ApplicationController
     def new
         @school_class = SchoolClass.new
@@ -6,10 +7,13 @@ class SchoolClassesController < ApplicationController
     def create 
         @school_class = SchoolClass.new
         @school_class
-        @school_class.title = params[:student][:title]
-        @school_class.room_number = params[:student][:room_number]
+        # binding.pry
+        @school_class.title = params[:school_class][:title]
+        @school_class.room_number = params[:school_class][:room_number]
+        
         @school_class.save
-        redirect_to student_path(@student)
+        
+        redirect_to school_class_path(@school_class)
     end
 
 end
