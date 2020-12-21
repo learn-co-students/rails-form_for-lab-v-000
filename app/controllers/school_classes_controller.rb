@@ -1,6 +1,6 @@
 class SchoolClassesController < ApplicationController
     def new
-       @school_class = SchoolClass.new 
+        @school_class = SchoolClass.new
     end
 
     def create
@@ -13,7 +13,7 @@ class SchoolClassesController < ApplicationController
         @school_class = SchoolClass.find(params[:id])
     end
 
-    def edit
+    def edit 
         @school_class = SchoolClass.find(params[:id])
     end
 
@@ -28,5 +28,4 @@ class SchoolClassesController < ApplicationController
     def school_class_params
         params.require(:school_class).permit!
     end
-
-end
+end 
