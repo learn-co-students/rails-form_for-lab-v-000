@@ -1,0 +1,2 @@
+class CreateSchoolClass < ApplicationRecord
+end
